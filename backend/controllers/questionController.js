@@ -45,12 +45,13 @@ exports.getAllQuestions = async (req, res) => {
 
 exports.createQuestion = async (req, res) => {
     try{
+        console.log(req.body, "line 48")
         const newQuestion = await Question.create(req.body);
 
         const creator = await User.findById(req.body.creator);
         console.log(newQuestion._id)
 
-        creator.post.push(newQuestion._id);
+        creator.questions.push(newQuestion._id);
         await creator.save()
 
         res.status(201).json({

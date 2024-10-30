@@ -2,33 +2,34 @@ const mongoose = require("mongoose");
 const { type } = require("os");
 
 const questionSchema = new mongoose.Schema({
-    title:{
+    title: {
         type: String,
         required: true,
         unique: true,
     },
-    category:{
+    category: {
         type: String,
         required: true,
     },
-    description:{
+    description: {
         type: String,
         required: true,
     },
-    image:{
+    image: {
         type: String,
         required: true,
     },
-    likes:[{
+    likes: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User',
     }],
     comments: [{
-        type: Array,
-        comments: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Comment' }]
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Comment',
     }],
     creator: {
-        type: mongoose.Schema.Types.ObjectId, ref: 'User',
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User',
         required: true,
     },
     created_at: {
@@ -36,7 +37,7 @@ const questionSchema = new mongoose.Schema({
         default: Date.now(),
         select: false,
     },
-})
+});
 
 const Question = mongoose.model("Question", questionSchema);
 module.exports = Question;

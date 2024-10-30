@@ -20,7 +20,6 @@ const userSchema = new mongoose.Schema({
     },
     confirmPassword: {
         type: String,
-        required: true,
         validate: {
             validator: function (el) {
                 return el === this.password;
@@ -33,13 +32,22 @@ const userSchema = new mongoose.Schema({
         enum: ["user", "admin"],
         default: "user",
     },
-    dishes: {
-        type: Array,
-        dishes: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Dish' }]
-    }
+     questions: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Question',
+    }],
+    comments: [
+        { type: mongoose.Schema.Types.ObjectId, ref: 'Comment' }
+    ],
+    likes: [
+        { type: mongoose.Schema.Types.ObjectId, ref: 'Post' }
+    ]
 })
 
 userSchema.pre("save", async function (next) {
+
+    if (!this.isModified('password')) return next();
+
     this.password = await bcrypt.hash(this.password, 12);
     this.confirmPassword = undefined;
     next();

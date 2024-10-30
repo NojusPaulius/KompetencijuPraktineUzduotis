@@ -18,7 +18,7 @@ const commentSchema = new mongoose.Schema({
     comment: {
         type: mongoose.Schema.Types.ObjectId, ref: 'comment',
     },
-    post: {
+    question: {
         type: mongoose.Schema.Types.ObjectId, ref: "post",
     },
     created_at: {
