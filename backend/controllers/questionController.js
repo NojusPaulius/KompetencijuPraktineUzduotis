@@ -94,7 +94,7 @@ exports.updateQuestion = async (req, res) => {
             new: true,
             runValidators: true,
         });
-        post.likes.push(req.body.likes)
+        question.likes.push(req.body.likes)
         res.status(200).json({
             status: "success",
             data: {

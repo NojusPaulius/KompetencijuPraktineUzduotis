@@ -6,7 +6,7 @@ const commentSchema = new mongoose.Schema({
         required: true,
     },
     comments: [
-        { type: mongoose.Schema.Types.ObjectId, ref: 'comment' }
+        { type: mongoose.Schema.Types.ObjectId, ref: 'Comment' }
     ],
     creator: { 
         type: mongoose.Schema.Types.ObjectId, ref: 'User',
@@ -16,10 +16,10 @@ const commentSchema = new mongoose.Schema({
         { type: mongoose.Schema.Types.ObjectId, ref: 'User' }
     ],
     comment: {
-        type: mongoose.Schema.Types.ObjectId, ref: 'comment',
+        type: mongoose.Schema.Types.ObjectId, ref: 'Comment',
     },
     question: {
-        type: mongoose.Schema.Types.ObjectId, ref: "post",
+        type: mongoose.Schema.Types.ObjectId, ref: "Question",
     },
     created_at: {
         type: Date,

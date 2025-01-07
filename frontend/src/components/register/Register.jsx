@@ -32,29 +32,28 @@ const Register = () => {
           }
     }
     return(
-        <form onSubmit={handleSubmit}> 
-            <fieldset className="">
-                <div className="">
-                    <div className="">
-                        <input className="" type="text" name="username" id="username" placeholder="Username" value={user.username} onChange={handleChange}/>
+        <form onSubmit={handleSubmit} className="m-24 w-3/12 flex-col justify-center items-center"> 
+                <h2 className="text-center text-8xl p-10">Register</h2>
+                <div className="w-full border-4 rounded-2xl h-auto border-jinx-hair-dark p-1">
+                    <div className="p-4">
+                        <input className="w-full border-4 rounded-2xl border-jinx-hair-dark p-1" type="text" name="username" id="username" placeholder="Username" value={user.username} onChange={handleChange}/>
                     </div>
-                    <div className="">
-                        <input className="" type="email" name="email" id="email" placeholder="Email" value={user.email} onChange={handleChange}/>
+                    <div className="p-4">
+                        <input className="w-full border-4 rounded-2xl border-jinx-hair-dark p-1" type="email" name="email" id="email" placeholder="Email" value={user.email} onChange={handleChange}/>
                     </div>
-                    <div className="">
-                        <input className="" type="password" name="password" id="password" placeholder="Password" value={user.password} onChange={handleChange}/>
+                    <div className="p-4">
+                        <input className="w-full border-4 rounded-2xl border-jinx-hair-dark p-1" type="password" name="password" id="password" placeholder="Password" value={user.password} onChange={handleChange}/>
                     </div>
-                    <div className="">
-                        <input className="" type="password" name="confirmPassword" id="confirmPassword" placeholder="Confirm password" value={user.confirmPassword} onChange={handleChange}/>
+                    <div className="p-4">
+                        <input className="w-full border-4 rounded-2xl border-jinx-hair-dark p-1" type="password" name="confirmPassword" id="confirmPassword" placeholder="Confirm password" value={user.confirmPassword} onChange={handleChange}/>
                     </div>
-                    <div className="">
-                        <button className="" type="submit">Register</button>
+                    <div className="p-4 flex justify-center">
+                        <button className="w-30% border-4 rounded-2xl border-jinx-hair-dark" type="submit">Register</button>
                     </div>
-                    <div className="">
-                        <a href="/login">Have an account?</a>
+                    <div className="p-2 flex justify-center">
+                        <a href="/login" className="text-2xl">Have an account?</a>
                     </div>
                 </div>
-            </fieldset>
         </form>
     )
 }

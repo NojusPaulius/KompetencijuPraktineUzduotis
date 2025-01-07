@@ -42,10 +42,13 @@ const Main = () =>{
         const handleSearch = (e) => {
             setLoading(true)
             setSearch(`title=${e.target.value}`)
+            console.log(search)
             if(e.target.value === ""){
                 setSearch("")
             }
+            
         }
+
 
         const handleCategories = (e) => {
             setLoading(true)
@@ -56,17 +59,17 @@ const Main = () =>{
         }
 
         return(
-            <main className="container">
-            <div className="container">
-                <input className="m-3" type="text" placeholder="Search" onChange={handleSearch}/>
-                <select name="category" id="category" onChange={handleCategories}>
+            <main className="container inline-flex flex-col items-center">
+            <div className="select-container inline my-4">
+                <input className="border-4 rounded-2xl border-jinx-hair-dark mx-2" type="text" placeholder="Search" onChange={handleSearch}/>
+                <select className="border-4 rounded-2xl border-jinx-hair-dark mx-2" name="category" id="category" onChange={handleCategories}>
                     <option value="None">None</option>
-                    {categories.map(category => (
-                        <option value={category._id}>{category.category}</option>
+                    {categories.map((category) => (
+                        <option key={category._id} value={category._id}>{category.category}</option>
                     ))}
                 </select>
             </div>
-            <Questions search={search} category={category} loading={loading} setLoading={setLoading}/>
+                <Questions search={search} category={category} loading={loading} setLoading={setLoading}/>
         </main>
         )
     }

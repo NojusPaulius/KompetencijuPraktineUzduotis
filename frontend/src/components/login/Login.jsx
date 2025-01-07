@@ -30,19 +30,20 @@ const Login = () => {
           }
     }
     return(
-        <form onSubmit={handleSubmit}>
-                <div className="">
-                    <div className="">
-                        <input className="form-control" type="email" name="email" id="email" placeholder="Email" value={user.email} onChange={handleChange}/>
+        <form onSubmit={handleSubmit} className="m-24 w-3/12 flex-col justify-center items-center">
+                <h2 className="text-center text-8xl p-10">Log in</h2>
+                <div className="w-full border-4 rounded-2xl h-auto border-jinx-hair-dark p-1">
+                    <div className="p-4">
+                        <input className="w-full border-4 rounded-2xl border-jinx-hair-dark p-1" type="email" name="email" id="email" placeholder="Email" value={user.email} onChange={handleChange}/>
                     </div>
-                    <div className="">
-                        <input className="form-control" type="password" name="password" id="password" placeholder="Password" value={user.password} onChange={handleChange}/>
+                    <div className="p-4">
+                        <input className="w-full border-4 rounded-2xl border-jinx-hair-dark p-1" type="password" name="password" id="password" placeholder="Password" value={user.password} onChange={handleChange}/>
                     </div>
-                    <div className="">
-                        <button className="btn btn-primary" type="submit">Log In</button>
+                    <div className="p-4 flex justify-center">
+                        <button className="w-30% border-4 rounded-2xl border-jinx-hair-dark hover:bg-jinx-pants-light" type="submit">Log In</button>
                     </div>
-                    <div className="">
-                        <a href="/register">Don't have an account?</a>
+                    <div className="p-2 flex justify-center">
+                        <a href="/register" className="text-2xl">Don't have an account?</a>
                     </div>
                 </div>
         </form>
